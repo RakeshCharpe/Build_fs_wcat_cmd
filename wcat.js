@@ -37,18 +37,47 @@ if (isBpresent == true && isSpresent == true && isNpresent == true) {
   }
   
 }
+if (isSpresent == true && isNpresent == true) {
+  fors();
+  forn();
+  return;
+}
+if (isSpresent == true && isBpresent == true) {
+  fors();
+  forb();
+  return;
+}
 
 
- if (options[0].includes("-b")) {
-   forb();
-   return;
- } else if (options[0].includes("-n")) {
-   forn();
-   return;
- } else if (options[0].includes("-s")) {
-   fors();
-   return;
- }
+let contentf = "";
+for (let i = 0; i < fileArr.length; i++) {
+  let ansf = fs.existsSync(fileArr[i]);
+  if (ansf == false) {
+    console.log("File does not exist");
+  } else {
+    let filecontentf = fs.readFileSync(fileArr[i]);
+    contentf += filecontentf + "\r\n";
+  }
+  console.log(contentf);
+}
+ 
+
+
+
+
+
+if (options.length != 0) {
+  if (options[0].includes("-b")) {
+    forb();
+    return;
+  } else if (options[0].includes("-n")) {
+    forn();
+    return;
+  } else if (options[0].includes("-s")) {
+    fors();
+    return;
+  }
+}
 
 
 //functions for b command
